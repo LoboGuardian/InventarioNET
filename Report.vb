@@ -14,8 +14,14 @@ Public Class Report
 
     Private Sub Report_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Configurar el ComboBox
-        TypeBox1.Items.Add("MATERIAL")
-        TypeBox1.Items.Add("REPUESTO")
+        Dim items As New List(Of String)
+        items.Add("MATERIAL")
+        items.Add("REPUESTO")
+
+        TypeBox1.Items.Clear()
+        For Each item In items
+            TypeBox1.Items.Add(item)
+        Next
     End Sub
 
     Public Sub CalcularTotalesPorTipoYProducto(tipo As String, producto As String)
